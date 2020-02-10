@@ -1,10 +1,13 @@
 # README
 
-Vinder- The Wine Finder
 
-Author: Erica Huang
+# Vinder- The Winder Finder
 
-Vinder is a wine recommending web application that allow users to get personal recommendations based on preferences on wine.
+Title: Vinder
+
+
+Description: Vinder is a wine recommending web application that allow users
+to receive personalized wine list based on wine preferences.
 
 User can select their preferences based on different wine attributes, and Vinder will generate a list of wines that user would like based in selected attributes.
 
@@ -12,28 +15,34 @@ User can also search wine by keyword such as the name or variety or country from
 
 User can also get exposed to detail information about each individual wine, as well as saving each individual wine to a personal wine list and make tasting notes for every wine.
 
+Author: Erica Huang
+
+Heroku Link
+
+# Technologies
+
+-Ruby - 2.6.3
+-Rails - 5.2.4.1
+-React - 16.8.0
+-Foundation-Rails - 6.5.3.0
 
 
+# Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To set up this app, download the repo and run the following commands in your terminal in exact order:
 
-Things you may want to cover:
+-yarn install<br />
+-bundle exec bundle install<br />
+-bundle exec rake db:create<br />
+-bundle exec rake db:migrate && bundle exec rake db:rollback && bundle exec rake db:migrate<br />
+-bundle exec rake db:seed<br />
+-yarn start<br />
+-new tab- bundle exec rails s<br />
+-Navigate your browser to localhost:3000
 
-* Ruby version
+# Testing
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run tests, run these files in a separate terminal tab:<br />
+-bundle exec rake db:test:prepare<br />
+-bundle exec rspec<br />
+-yarn run test
