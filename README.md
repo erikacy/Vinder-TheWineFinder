@@ -1,5 +1,6 @@
 # README
 
+[![Codeship Status for erikacy/Vinder-TheWineFinder](https://app.codeship.com/projects/aedaeef0-2e55-0138-370e-6eb55da84966/status?branch=master)](https://app.codeship.com/projects/384832)
 
 # Vinder- The Winder Finder
 
