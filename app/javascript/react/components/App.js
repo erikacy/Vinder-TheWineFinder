@@ -1,9 +1,15 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import WineContainer from './wines/WineContainer';
 
 export const App = () => {
   return (
-    <h1>The Wine Finder</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/' component={WineContainer} />
+        <Route exact path='/wines' component={WineContainer} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 
