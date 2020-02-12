@@ -4,7 +4,8 @@ class Api::V1::WinesController < ApiController
   end
 
   def show
-    render json: Wine.find(params["id"]), serializer: WineSerializer
+    wine = Wine.find(params["id"])
+    render json: wine, serializer: WineSerializer
   end
 
 end

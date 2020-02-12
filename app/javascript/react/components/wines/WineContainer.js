@@ -19,7 +19,7 @@ const WineContainer = () => {
       })
       .then(response => response.json())
       .then(response => {
-        setWines(response);
+        setWines(response.wines);
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, []);
@@ -42,6 +42,7 @@ const WineContainer = () => {
     </div>
     </>
   )
+
 }
 
 export default WineContainer;
