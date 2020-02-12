@@ -33,11 +33,6 @@ const WineContainer = () => {
     );
   });
 
-  /* When your mouse cursor enter the background, the fading won't pause and keep playing */
-  $('.carousel').carousel({
-    pause: "false" /* Change to true to make it paused when your mouse cursor enter the background */
-  });
-
 
 
   return(
@@ -45,14 +40,12 @@ const WineContainer = () => {
       <div id="myCarousel" className="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
         <div className="carousel-inner" role="listbox">
           <div className="item active background a"></div>
-          <div className="item background b"></div>
-          <div className="item background c"></div>
         </div>
       </div>
 
       <div className="covertext">
         <div className="col-lg-10" style={{float: "none", margin: 0}}>
-          <h1 className="title">VINDER</h1>
+          <h1 className="title">VINEDER</h1>
           <h3 className="subtitle">Your Personal Sommelier</h3>
         </div>
         <div className="col-xs-12 explore">
@@ -63,6 +56,7 @@ const WineContainer = () => {
       <div>
         {WineTiles}
       </div>
+
     </div>
   )
 
