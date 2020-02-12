@@ -52,4 +52,5 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'webpacker', '~> 3.3'
+gem "active_model_serializers"
 gem 'bootstrap', '~> 4.0.0'
