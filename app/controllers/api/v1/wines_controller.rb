@@ -1,6 +1,6 @@
 class Api::V1::WinesController < ApiController
   def index
-    render json: Wine.all.sample(10)
+    render json: Wine.all.sample(1)
   end
 
   def show
