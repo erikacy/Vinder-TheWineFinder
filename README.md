@@ -25,7 +25,7 @@ Heroku Link
 -Ruby - 2.6.3
 -Rails - 5.2.4.1
 -React - 16.8.0
--Foundation-Rails - 6.5.3.0
+-Bootstrap
 
 
 # Setup
