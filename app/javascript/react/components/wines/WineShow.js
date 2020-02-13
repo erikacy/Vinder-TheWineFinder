@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeTile from './LikeTile';
 
 const WineShow = ({ wine }) => {
   let {
@@ -27,8 +28,10 @@ const WineShow = ({ wine }) => {
         <h4>{price}</h4>
         <p>{description}</p>
       </div>
+
+      <LikeTile wine={wine}/>
     </>
   )
 }
 
-export default WineShow
+export default WineShow;

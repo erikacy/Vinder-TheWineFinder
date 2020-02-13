@@ -2,7 +2,7 @@ class Api::V1::WinesController < ApiController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    render json: Wine.all.sample(3)
+    render json: Wine.all.sample(2)
   end
 
   def show
