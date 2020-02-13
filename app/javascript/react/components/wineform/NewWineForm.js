@@ -102,11 +102,11 @@ const NewWineForm = props => {
       <div>
         <h5>{duplicateError}</h5>
       </div>
-
-
+        <div id='form-main'>
+          <div id='form-div'>
           <form onSubmit={formSubmit} id='form1'>
             <ErrorList errors={errors} />
-            <div class="segment">
+            <div className="segment">
               <h1>Add New Wine</h1>
             </div>
 
@@ -253,6 +253,8 @@ const NewWineForm = props => {
               <input type='submit' className='button' value='Submit Wine' />
             </div>
           </form>
+        </div>
+      </div>
 
     </>
   );

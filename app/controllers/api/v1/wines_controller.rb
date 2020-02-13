@@ -1,6 +1,8 @@
 class Api::V1::WinesController < ApiController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
-    render json: Wine.all.sample(5)
+    render json: Wine.all.sample(3)
   end
 
   def show
@@ -16,7 +18,6 @@ class Api::V1::WinesController < ApiController
     else
       render json: { errors: cape.errors.full_messages }
     end
-
   end
 
   protected
