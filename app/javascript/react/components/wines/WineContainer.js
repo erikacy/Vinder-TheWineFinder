@@ -36,11 +36,28 @@ const WineContainer = () => {
 
 
   return(
-    <>
-    <div>
-      {WineTiles}
+    <div className="container-fluid main">
+      <div id="myCarousel" className="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
+        <div className="carousel-inner" role="listbox">
+          <div className="item active background a"></div>
+        </div>
+      </div>
+
+      <div className="covertext">
+        <div className="col-lg-10" style={{float: "none", margin: 0}}>
+          <h1 className="title">VINEDER</h1>
+          <h3 className="subtitle">Your Personal Sommelier</h3>
+        </div>
+        <div className="col-xs-12 explore">
+          <a href="#"><button type="button" className="btn btn-lg explorebtn">PAIR</button></a>
+        </div>
+      </div>
+
+      <div>
+        {WineTiles}
+      </div>
+
     </div>
-    </>
   )
 
 }
