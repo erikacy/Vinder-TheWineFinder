@@ -11,17 +11,19 @@ class User < ApplicationRecord
   has_many :likes
   has_many :wines, through: :likes
 
-  def recommend_wines
+  def recommend_wines(user)
     other_users = User.where.not(id: self.id)
-    recommended = { user_id: null, weight: 0}
+    recommended = []
     other_users.each do |user|
       common_wines = user.wines & self.wines
-      weight = common_wines.count.to_f/user.wines.count
-      if weight > recommended["weight"]
-        recommended[:used_id] = user.id
-        recommended[wine] += weight
+      # weight = common_wines.count.to_f/user.wines.count
+        (user.wines - common_wines).each do |wine|
+          recommended << wine
+          # recommended[wine] += weight
       end
     end
+    # sorted_recommend = recommended.sort_by { |key, value| value}.reverse
+    recommended
   end
 
 end

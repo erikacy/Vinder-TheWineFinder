@@ -3,4 +3,5 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :likes
   has_many :wines, through: :likes
+
 end

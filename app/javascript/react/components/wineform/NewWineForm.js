@@ -64,6 +64,7 @@ const NewWineForm = props => {
         if (body.errors) {
           setDuplicateError(body.errors[0]);
         } else {
+          debugger
           setFreshWine(body.wine.id);
           setRedirect(true);
         }

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
-      resources :wines, only: [:index, :show, :create] do
+      resources :wines, only: [:index, :show, :create, :recommend] do
         resources :likes, only: [:create]
       end
     end

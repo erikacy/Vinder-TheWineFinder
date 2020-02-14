@@ -39,7 +39,7 @@ const LikeTile = (props) => {
   return(
     <div className='button-group'>
       <button onClick={handleLike} type='submit' className='button' value='Like'> Like
-      </button>{likes}
+      </button>{likes} people have liked
     </div>
   )
 
