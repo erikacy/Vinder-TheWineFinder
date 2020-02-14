@@ -54,3 +54,5 @@ gem 'devise'
 gem 'webpacker', '~> 3.3'
 gem "active_model_serializers"
 gem 'bootstrap', '~> 4.0.0'
+gem 'simple_recommender'
+gem 'faker'

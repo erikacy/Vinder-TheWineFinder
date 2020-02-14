@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_183344) do
+ActiveRecord::Schema.define(version: 2020_02_13_163110) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "intarray"
   enable_extension "plpgsql"
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "wine_id", null: false
+    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["wine_id"], name: "index_likes_on_wine_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

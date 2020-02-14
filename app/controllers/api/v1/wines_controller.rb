@@ -2,7 +2,12 @@ class Api::V1::WinesController < ApiController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    render json: Wine.all.sample(3)
+    if current_user
+      list = current_user.recommend_wines(current_user).sample(6)
+      render json: list
+    else
+      render json: Wine.all.sample(3)
+    end
   end
 
   def show
@@ -12,13 +17,13 @@ class Api::V1::WinesController < ApiController
 
   def create
     wine = Wine.new(wine_params)
-    wine.user = current_user
     if wine.save
       render json: wine
     else
       render json: { errors: cape.errors.full_messages }
     end
   end
+
 
   protected
   def wine_params

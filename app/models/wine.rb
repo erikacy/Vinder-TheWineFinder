@@ -7,4 +7,8 @@ class Wine < ApplicationRecord
   validates :title, presence: true
   validates :variety, presence: true
   validates :winery, presence: true
+
+  has_many :likes
+  has_many :users, through: :likes
+
 end

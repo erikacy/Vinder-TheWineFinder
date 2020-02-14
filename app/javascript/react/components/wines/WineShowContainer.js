@@ -23,10 +23,12 @@ const WineShowContainer = ({ match }) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+
+
   return (
     <>
       <div>
-        <WineShow key={wine.id} wine={wine} />
+        <WineShow key={wine.id} wine={wine}/>
       </div>
     </>
   )
