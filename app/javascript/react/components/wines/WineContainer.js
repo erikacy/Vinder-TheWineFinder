@@ -45,7 +45,7 @@ const WineContainer = () => {
 
       <div className="covertext">
         <div className="col-lg-10" style={{float: "none", margin: 0}}>
-          <h1 className="title">VINEDER</h1>
+          <h1 className="title">VINDER</h1>
           <h3 className="subtitle">Your Personal Sommelier</h3>
         </div>
         <div className="col-xs-12 explore">

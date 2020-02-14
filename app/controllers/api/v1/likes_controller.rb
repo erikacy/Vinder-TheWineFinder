@@ -5,7 +5,6 @@ class Api::V1::LikesController < ApiController
     likes = Like.where(wine: params[:wine_id])
 
     if likes.where(user: current_user) == []
-      binding.pry
       Like.create(
         wine: wine,
         user: current_user
