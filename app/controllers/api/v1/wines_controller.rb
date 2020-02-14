@@ -2,9 +2,8 @@ class Api::V1::WinesController < ApiController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    # render json: Wine.all.sample(3)
     if current_user
-      list = current_user.recommend_wines(current_user).sample(5)
+      list = current_user.recommend_wines(current_user).sample(6)
       render json: list
     else
       render json: Wine.all.sample(3)
