@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const LikeTile = (props) => {
+
   const [likes, setLikes] = useState(0)
   let wineId = props.wine.id
 
@@ -24,7 +25,7 @@ const LikeTile = (props) => {
       })
       .then(response => response.json())
       .then(body => {
-        setLikes(body)
+        setLikes(body.likes.length)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   };
@@ -37,8 +38,8 @@ const LikeTile = (props) => {
 
   return(
     <div className='button-group'>
-      <button onClick={handleLike} type='submit' className='button' value='Like'>Like
-      </button>{likes.length}
+      <button onClick={handleLike} type='submit' className='button' value='Like'> Like
+      </button>{likes}
     </div>
   )
 

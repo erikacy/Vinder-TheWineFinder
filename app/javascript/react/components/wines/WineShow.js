@@ -2,6 +2,7 @@ import React from 'react';
 import LikeTile from './LikeTile';
 
 const WineShow = ({ wine }) => {
+
   let {
     country,
     description,

@@ -2,12 +2,22 @@ class Api::V1::LikesController < ApiController
 
   def create
     wine = Wine.find(params["wine_id"])
-    Like.create(
-      wine: wine,
-      user: current_user
-    )
     likes = Like.where(wine: params[:wine_id])
-    render json: wine.likes.count
+
+    if likes.where(user: current_user) == []
+      binding.pry
+      Like.create(
+        wine: wine,
+        user: current_user
+      )
+      render json: likes
+    else
+      render json: likes
+    end
   end
 
+  protected
+  def like_params
+  params.require(:like)
+  end
 end
