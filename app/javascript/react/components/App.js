@@ -2,7 +2,8 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import WineContainer from './wines/WineContainer';
 import WineShowContainer from './wines/WineShowContainer';
-import NewWineContainer from './wineform/NewWineContainer'
+import NewWineContainer from './wineform/NewWineContainer';
+import PairContainer from './pairing/PairContainer';
 
 export const App = () => {
   return (
@@ -12,6 +13,7 @@ export const App = () => {
         <Route exact path='/wines' component={WineContainer} />
         <Route exact path='/new' component={NewWineContainer} />
         <Route exact path='/wines/:id' component={WineShowContainer} />
+        <Route exact path='/pairs' component={PairContainer} />
       </Switch>
     </BrowserRouter>
   )

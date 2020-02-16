@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import WineTile from './WineTile';
+import humps from 'humps';
 
 const WineContainer = () => {
   const [wines, setWines] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null)
+  const [greeting, setGreeting] = useState("Taste the world's finest...")
 
   useEffect(() => {
     fetch('/api/v1/wines.json')
@@ -18,10 +21,16 @@ const WineContainer = () => {
       })
       .then(response => response.json())
       .then(response => {
+        let camelized = humps.camelizeKeys(response.wines[0].users[0].current_user)
+        setCurrentUser(camelized)
         setWines(response.wines);
+        if (camelized !== null) {
+          setGreeting(`Curated Wine List for ${camelized.firstName}`)
+        }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, []);
+
 
   const WineTiles = wines.map(wine => {
   let id = wine.id;
@@ -31,7 +40,6 @@ const WineContainer = () => {
     </Link>
     );
   });
-
 
 
   return(
@@ -48,11 +56,12 @@ const WineContainer = () => {
           <h3 className="subtitle">Your Personal Sommelier</h3>
         </div>
         <div className="col-xs-12 explore">
-          <a href="#"><button type="button" className="btn btn-lg explorebtn">PAIR</button></a>
+          <a href="/pairs"><button type="button" className="btn btn-lg explorebtn">PAIR</button></a>
         </div>
       </div>
 
       <div>
+        <h2>{greeting}</h2>
         {WineTiles}
       </div>
 
