@@ -61,40 +61,43 @@ const CountrySearchBar = () => {
 
  return(
    <>
-    <form className="form-wrapper" onSubmit={handleSubmit}>
-      <h2>Find Your Wine</h2>
-    <label>Country:
-      <input type="text" id="search" name="country" value={searchString.country} onChange={onFormChange} placeholder="France, Italy..."/>
-    </label>
+   <div id="form-main">
+     <div id="form-div">
+        <form className="form" id="form1" onSubmit={handleSubmit}>
+        <label>Country:
+          <input type="text" id="search" className="country" name="country" value={searchString.country} onChange={onFormChange} placeholder="France, Italy..."/>
+        </label>
 
-    <label>Region:
-      <input type="text" id="search" name="region" value={searchString.region} onChange={onFormChange} placeholder="Bordeaux, Napa, Rioja"/>
-    </label>
+        <label>Region:
+          <input type="text" id="search" name="region" value={searchString.region} onChange={onFormChange} placeholder="Bordeaux, Napa, Rioja"/>
+        </label>
 
-    <label>Taste/Food Pairing:
-      <input type="text" id="search" name="description" value={searchString.description} onChange={onFormChange} placeholder="sweet, dry, acidic, tannic"/>
-     </label>
+        <label>Taste/Food Pairing:
+          <input type="text" id="search" name="description" value={searchString.description} onChange={onFormChange} placeholder="sweet, dry, acidic, tannic"/>
+         </label>
 
-    <label>Variety:
-      <input type="text" id="search" name="variety" value={searchString.variety} onChange={onFormChange} placeholder="Sauvignon Blanc, Cabernet, Sparkling, Rosé"/>
-    </label>
+        <label>Variety:
+          <input type="text" id="search" name="variety" value={searchString.variety} onChange={onFormChange} placeholder="Sauvignon Blanc, Cabernet, Sparkling, Rosé"/>
+        </label>
 
-    <label>Title/Vintage:
-      <input type="text" id="search" name="title" value={searchString.title} onChange={onFormChange} placeholder=""/>
-     </label>
+        <label>Title/Vintage:
+          <input type="text" id="search" name="title" value={searchString.title} onChange={onFormChange} placeholder=""/>
+         </label>
 
-    <label>Winery:
-      <input type="text" id="search" name="winery" value={searchString.winery} onChange={onFormChange} placeholder=""/>
-    </label>
+        <label>Winery:
+          <input type="text" id="search" name="winery" value={searchString.winery} onChange={onFormChange} placeholder=""/>
+        </label>
 
-    <label>Price
-      <input type="range" className="custom-range" id="customRange" min="0" max="100" step="1" value={searchString.price} onChange={onFormChange} >
-      </input>
-    </label>
+        <label>Price
+          <input type="range" className="custom-range" id="customRange" min="0" max="100" step="1" value={searchString.price} onChange={onFormChange} >
+          </input>
+        </label>
 
 
-    <input type="submit" value="go" id="submit"></input>
-    </form>
+        <input type="submit" value="Search"></input>
+        </form>
+      </div>
+  </div>
 
     <div>
       {WineTiles}
