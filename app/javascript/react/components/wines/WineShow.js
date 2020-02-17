@@ -18,6 +18,7 @@ const WineShow = ({ wine }) => {
   } = wine
   return (
     <>
+    <div className="containter">
         <ul className="list-group list-group-flush">
           <h2 className="list-group-item">Title: {title}</h2>
           <h4 className="list-group-item">Variety: {variety}</h4>
@@ -32,6 +33,8 @@ const WineShow = ({ wine }) => {
         </ul>
 
       <LikeTile wine={wine}/>
+    
+    </div>
     </>
   )
 }

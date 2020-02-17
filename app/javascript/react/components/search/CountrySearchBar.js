@@ -59,49 +59,75 @@ const CountrySearchBar = () => {
     );
   });
 
+//   <div class="container">
+//
+//
+//   <div class="cover">
+//     <h1>Discover what's out there.</h1>
+//     <form  class="flex-form">
+//       <label for="from">
+//         <i class="ion-location"></i>
+//       </label>
+//       <input type="search" placeholder="Where do you want to go?">
+//       <input type="submit" value="Search">
+//     </form>
+//     <div id="madeby">
+//       <span>
+//         Photo by <a href="https://unsplash.com/@benblenner" target="_blank">Ben Blennerhassett</a>
+//       </span>
+//     </div>
+//   </div>
+//
+// </div>
+
  return(
    <>
-   <div id="form-main">
-     <div id="form-div">
-        <form className="form" id="form1" onSubmit={handleSubmit}>
-        <label>Country:
-          <input type="text" id="search" className="country" name="country" value={searchString.country} onChange={onFormChange} placeholder="France, Italy..."/>
-        </label>
-
-        <label>Region:
-          <input type="text" id="search" name="region" value={searchString.region} onChange={onFormChange} placeholder="Bordeaux, Napa, Rioja"/>
-        </label>
-
-        <label>Taste/Food Pairing:
-          <input type="text" id="search" name="description" value={searchString.description} onChange={onFormChange} placeholder="sweet, dry, acidic, tannic"/>
-         </label>
-
-        <label>Variety:
-          <input type="text" id="search" name="variety" value={searchString.variety} onChange={onFormChange} placeholder="Sauvignon Blanc, Cabernet, Sparkling, Rosé"/>
-        </label>
-
-        <label>Title/Vintage:
-          <input type="text" id="search" name="title" value={searchString.title} onChange={onFormChange} placeholder=""/>
-         </label>
-
-        <label>Winery:
-          <input type="text" id="search" name="winery" value={searchString.winery} onChange={onFormChange} placeholder=""/>
-        </label>
-
-        <label>Price
-          <input type="range" className="custom-range" id="customRange" min="0" max="100" step="1" value={searchString.price} onChange={onFormChange} >
-          </input>
-        </label>
+   <div className="container">
 
 
-        <input type="submit" value="Search"></input>
+        <form id="contact" onSubmit={handleSubmit}>
+          <h3>Discover New Taste</h3>
+        <fieldset>
+          <label>Country</label>
+          <input type="text" name="country" value={searchString.country} onChange={onFormChange} placeholder="France, Italy..." tabindex="1"/>
+        </fieldset>
+
+        <fieldset>
+          <label>Region</label>
+          <input type="text" name="region" value={searchString.region} onChange={onFormChange} placeholder="Bordeaux, Napa, Rioja" tabindex="1" />
+        </fieldset>
+
+        <fieldset>
+          <label>Taste/Food Pairing</label>
+          <input type="text" name="description" value={searchString.description} onChange={onFormChange} placeholder="sweet, dry, acidic, tannic" tabindex="1"/>
+        </fieldset>
+
+        <fieldset>
+          <label>Variety</label>
+          <input type="text" name="variety" value={searchString.variety} onChange={onFormChange} placeholder="Sauvignon Blanc, Cabernet, Sparkling, Rosé" tabindex="1" />
+        </fieldset>
+
+        <fieldset>
+          <label>Title/Vintage</label>
+          <input type="text" name="title" value={searchString.title} onChange={onFormChange} placeholder="" tabindex="1"/>
+        </fieldset>
+
+
+        <fieldset>
+          <label>Winery:</label>
+          <input type="text" name="winery" value={searchString.winery} onChange={onFormChange} placeholder="" tabindex="1"/>
+        </fieldset>
+
+        <fieldset>
+        <button id="contact-submit" type="submit" value="Search" data-submit="...searching">Search</button>
+        </fieldset>
+
         </form>
       </div>
-  </div>
 
-    <div>
+      <div className="container">
       {WineTiles}
-    </div>
+      </div>
   </>
  )
 }

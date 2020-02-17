@@ -20,7 +20,7 @@ class Api::V1::WinesController < ApiController
     if wine.save
       render json: wine
     else
-      render json: { errors: cape.errors.full_messages }
+      render json: { errors: wine.errors.full_messages }
     end
   end
 
