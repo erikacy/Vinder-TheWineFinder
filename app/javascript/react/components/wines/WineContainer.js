@@ -28,7 +28,7 @@ const WineContainer = () => {
   const WineTiles = wines.map(wine => {
   let id = wine.id;
   return (
-    <Link to={`/wines/${id}`} key={wine.id}>
+    <Link to={`/wines/${id}`} target="_blank" key={wine.id}>
       <WineTile id={wine.id} wine={wine} />
     </Link>
     );

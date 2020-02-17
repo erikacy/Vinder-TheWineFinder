@@ -24,6 +24,16 @@ class Api::V1::WinesController < ApiController
     end
   end
 
+  def search
+    @wines = Wine.where("country ILIKE ? AND region ILIKE ? AND description ILIKE ? AND variety ILIKE ? AND title ILIKE ? AND winery ILIKE ?", "%#{params['search_strings']['country']}%",
+    "%#{params['search_strings']['region']}%",
+    "%#{params['search_strings']['description']}%",
+    "%#{params['search_strings']['variety']}%",
+    "%#{params['search_strings']['title']}%",
+    "%#{params['search_strings']['winery']}%")
+    render json: @wines
+  end
+
 
   protected
   def wine_params

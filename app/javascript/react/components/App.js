@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import WineContainer from './wines/WineContainer';
 import WineShowContainer from './wines/WineShowContainer';
 import NewWineContainer from './wineform/NewWineContainer'
+import SearchPageContainer from './search/SearchPageContainer'
 
 export const App = () => {
   return (
@@ -11,6 +12,7 @@ export const App = () => {
         <Route exact path='/' component={WineContainer} />
         <Route exact path='/wines' component={WineContainer} />
         <Route exact path='/new' component={NewWineContainer} />
+        <Route exact path='/search' component={SearchPageContainer} />
         <Route exact path='/wines/:id' component={WineShowContainer} />
       </Switch>
     </BrowserRouter>
