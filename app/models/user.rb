@@ -25,5 +25,4 @@ class User < ApplicationRecord
     # sorted_recommend = recommended.sort_by { |key, value| value}.reverse
     recommended
   end
-
 end

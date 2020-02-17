@@ -30,7 +30,7 @@ CSV.foreach(Rails.root.join('./lib/seeds/test_2.csv'), headers: true) do |row|
 end
 
 200.times do
-  User.create(
+  User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
@@ -38,9 +38,9 @@ end
   password_confirmation: '123456789'
   )
 end
-#
+
 2000.times do
-  Like.create(
+  Like.create!(
     user: User.all.sample,
     wine: Wine.all.sample
   )
