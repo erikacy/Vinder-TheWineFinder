@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-const LikeTile = (props) => {
-
-  const [likes, setLikes] = useState(0)
+const UnlikeTile = (props) => {
+  const [className, setClassName] = useState("")
+  const [currentUserId, setCurrentUserId] = useState(null)
   let wineId = props.wine.id
-
-  const addLike = () => {
+  
+  const removeLike = () => {
     fetch(`/api/v1/wines/${wineId}/likes`, {
       credentials: 'same-origin',
-      method: 'POST',
+      method: 'DELETE',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -25,24 +25,31 @@ const LikeTile = (props) => {
       })
       .then(response => response.json())
       .then(body => {
-        setLikes(body.likes.length)
+        debugger
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   };
 
-  const handleLike = event => {
+  const clickUnlike = event => {
     event.preventDefault()
-    addLike()
+    removeLike()
   }
 
 
-  return(
-    <>
-      <button onClick={handleLike} type='submit' className='btn btn-primary btn-lg' value='Like'> Like
-      </button>{likes} people have liked
-    </>
-  )
+  // if (props.wine.users[0].current_user.id !== null) {
+  //   props.wine.likes.forEach(like => {
+  //     if (like.user_id === currentUserId){
+  //       setClassName("display")
+  //     }
+  //   })
+  // }
 
+
+  return (
+    <button className={className} onClick={clickUnlike} type='submit'
+      value='UnLike'>UnLike
+    </button>
+  )
 }
 
-export default LikeTile
+export default UnlikeTile;

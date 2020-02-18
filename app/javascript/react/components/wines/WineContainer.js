@@ -31,18 +31,17 @@ const WineContainer = () => {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, []);
 
-
-  const WineTiles = wines.map(wine => {
+  const wineTiles = wines.map(wine => {
   let id = wine.id;
   return (
-    <Link to={`/wines/${id}`} key={wine.id}>
+    <Link to={`/wines/${id}`} target="_blank" key={wine.id}>
       <WineTile id={wine.id} wine={wine} />
     </Link>
     );
   });
 
-
   return(
+    <>
     <div className="container-fluid main">
       <div id="myCarousel" className="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
         <div className="carousel-inner" role="listbox">
@@ -56,16 +55,18 @@ const WineContainer = () => {
           <h3 className="subtitle">Your Personal Sommelier</h3>
         </div>
         <div className="col-xs-12 explore">
-          <a href="/pairs"><button type="button" className="btn btn-lg explorebtn">PAIR</button></a>
+          <a href="/search"><button type="button" className="btn btn-lg explorebtn">Start Pairing!</button></a>
         </div>
       </div>
-
-      <div>
-        <h2>{greeting}</h2>
-        {WineTiles}
-      </div>
-
     </div>
+
+    <div>
+      <h2>{greeting}</h2>
+      <div className="card-group">
+        {wineTiles}
+      </div>
+    </div>
+    </>
   )
 
 }

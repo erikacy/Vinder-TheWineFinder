@@ -14,8 +14,6 @@ const PairContainer = () => {
       <button id="pair" onClick={foodPair} value="pair">Start Pairing!</button>
     </div>
   )
-
-
 }
 
 export default PairContainer

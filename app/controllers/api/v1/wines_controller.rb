@@ -3,10 +3,10 @@ class Api::V1::WinesController < ApiController
 
   def index
     if current_user
-      list = current_user.recommend_wines(current_user).sample(4)
+      list = current_user.recommend_wines(current_user).sample(10)
       render json: list
     else
-      render json: Wine.all.sample(4)
+      render json: Wine.all.sample(10)
     end
   end
 
@@ -20,8 +20,23 @@ class Api::V1::WinesController < ApiController
     if wine.save
       render json: wine
     else
-      render json: { errors: cape.errors.full_messages }
+      render json: { errors: wine.errors.full_messages }
     end
+  end
+
+  def search
+    @wines = Wine.where("country ILIKE ? AND region ILIKE ? AND description ILIKE ? AND variety ILIKE ? AND title ILIKE ? AND winery ILIKE ?", "%#{params['search_strings']['country']}%",
+    "%#{params['search_strings']['region']}%",
+    "%#{params['search_strings']['description']}%",
+    "%#{params['search_strings']['variety']}%",
+    "%#{params['search_strings']['title']}%",
+    "%#{params['search_strings']['winery']}%")
+    render json: @wines
+  end
+
+  def user_wines
+    list = current_user.wines
+    render json: list
   end
 
 
