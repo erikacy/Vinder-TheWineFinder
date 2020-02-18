@@ -63,7 +63,7 @@ const CountrySearchBar = () => {
    <>
    <div className="container">
       <form id="contact" onSubmit={handleSubmit}>
-          <h3>Discover New Taste</h3>
+          <h3>Pairing</h3>
         <fieldset>
           <label>Country</label>
           <input type="text" name="country" value={searchString.country} onChange={onFormChange} placeholder="France, Italy..." tabindex="1"/>
@@ -76,11 +76,11 @@ const CountrySearchBar = () => {
 
         <fieldset>
           <label>Taste/Food Pairing</label>
-          <input type="text" name="description" value={searchString.description} onChange={onFormChange} placeholder="sweet, dry, acidic, tannic" tabindex="1"/>
+          <input type="text" name="description" value={searchString.description} onChange={onFormChange} placeholder="Seafood, steak, sweet, spicy, tannic" tabindex="1"/>
         </fieldset>
 
         <fieldset>
-          <label>Variety</label>
+          <label>Varietal</label>
           <input type="text" name="variety" value={searchString.variety} onChange={onFormChange} placeholder="Sauvignon Blanc, Cabernet, Sparkling, Rosé" tabindex="1" />
         </fieldset>
 

@@ -3,12 +3,11 @@ import CountrySearchBar from './CountrySearchBar'
 
 const SearchPageContainer = () => {
 
-return (
+  return (
   <>
     <CountrySearchBar />
   </>
-)
-
+  )
 }
 
 export default SearchPageContainer
