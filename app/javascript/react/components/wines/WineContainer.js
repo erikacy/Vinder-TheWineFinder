@@ -41,6 +41,7 @@ const WineContainer = () => {
   });
 
   return(
+    <>
     <div className="container-fluid main">
       <div id="myCarousel" className="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
         <div className="carousel-inner" role="listbox">
@@ -57,13 +58,15 @@ const WineContainer = () => {
           <a href="/search"><button type="button" className="btn btn-lg explorebtn">Start Pairing!</button></a>
         </div>
       </div>
+    </div>
 
-      <div>
-        <h2>{greeting}</h2>
+    <div>
+      <h2>{greeting}</h2>
+      <div className="card-group">
         {wineTiles}
       </div>
-
     </div>
+    </>
   )
 
 }

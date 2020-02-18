@@ -41,10 +41,12 @@ const LikeList = () => {
   });
 
   return (
-    <div>
+    <>
       <h2>{listTitle}</h2>
-      {WineTiles}
-    </div>
+      <div className="card-group">
+        {WineTiles}
+      </div>
+    </>
   )
 }
 

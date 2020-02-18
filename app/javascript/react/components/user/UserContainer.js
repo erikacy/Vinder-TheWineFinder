@@ -3,9 +3,9 @@ import LikeList from './LikeList'
 
 const UserContainer = () => {
  return (
-   <>
+   <div className="card-group">
    <LikeList />
-   </>
+   </div>
  )
 }
 

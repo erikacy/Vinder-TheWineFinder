@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       post "/search", to: "wines#search"
       get "/user_wines", to: "wines#user_wines"
       resources :wines, only: [:index, :show, :create] do
-        resources :likes, only: [:create]
+        resources :likes, only: [:create, :destroy]
       end
     end
   end

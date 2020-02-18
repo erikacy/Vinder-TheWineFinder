@@ -102,7 +102,7 @@ const CountrySearchBar = () => {
       </form>
     </div>
 
-    <div className="container">
+    <div className="card-group">
       {WineTiles}
     </div>
   </>

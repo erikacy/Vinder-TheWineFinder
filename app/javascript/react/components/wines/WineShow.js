@@ -1,6 +1,7 @@
 import React from 'react';
 import LikeTile from './LikeTile';
 
+
 const WineShow = ({ wine }) => {
 
   let {
@@ -16,25 +17,25 @@ const WineShow = ({ wine }) => {
     variety,
     winery
   } = wine
+
+
   return (
     <>
-    <div className="containter">
-        <ul className="list-group list-group-flush">
-          <h2 className="list-group-item">Title: {title}</h2>
-          <h4 className="list-group-item">Variety: {variety}</h4>
-          <h4 className="list-group-item">Vineyard Designation: {designation}</h4>
-          <h4 className="list-group-item">{country}</h4>
-          <h4 className="list-group-item">{province}</h4>
-          <h4 className="list-group-item">{region}</h4>
+    <div className="jumbotron">
+        <h1 className='display-4'>{title}</h1>
+          <h3 className="lead">Varietal: {variety}</h3>
+          <h4 className="lead">{designation}</h4>
+          <h4 className="lead">{country}</h4>
+          <h4 className="lead">{province}</h4>
+          <h4 className="lead">{region}</h4>
+          <hr className="my-4"/>
+
           <h4 className="list-group-item">Winery: {winery}</h4>
           <h4 className="list-group-item">Wine Score: {score}</h4>
           <h4 className="list-group-item">Price: {price}</h4>
-          <h4 className="list-group-item">{description}</h4>
-        </ul>
-
-      <LikeTile wine={wine}/>
-    
+          <h4 className="list-group-item">Tasting Notes: {description}</h4>
     </div>
+      <LikeTile wine={wine}/>
     </>
   )
 }
