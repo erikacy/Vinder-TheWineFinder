@@ -3,10 +3,10 @@ class Api::V1::WinesController < ApiController
 
   def index
     if current_user
-      list = current_user.recommend_wines(current_user).sample(4)
+      list = current_user.recommend_wines(current_user).sample(10)
       render json: list
     else
-      render json: Wine.all.sample(4)
+      render json: Wine.all.sample(10)
     end
   end
 
@@ -32,6 +32,11 @@ class Api::V1::WinesController < ApiController
     "%#{params['search_strings']['title']}%",
     "%#{params['search_strings']['winery']}%")
     render json: @wines
+  end
+
+  def user_wines
+    list = current_user.wines
+    render json: list
   end
 
 

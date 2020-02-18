@@ -59,33 +59,10 @@ const CountrySearchBar = () => {
     );
   });
 
-//   <div class="container">
-//
-//
-//   <div class="cover">
-//     <h1>Discover what's out there.</h1>
-//     <form  class="flex-form">
-//       <label for="from">
-//         <i class="ion-location"></i>
-//       </label>
-//       <input type="search" placeholder="Where do you want to go?">
-//       <input type="submit" value="Search">
-//     </form>
-//     <div id="madeby">
-//       <span>
-//         Photo by <a href="https://unsplash.com/@benblenner" target="_blank">Ben Blennerhassett</a>
-//       </span>
-//     </div>
-//   </div>
-//
-// </div>
-
  return(
    <>
    <div className="container">
-
-
-        <form id="contact" onSubmit={handleSubmit}>
+      <form id="contact" onSubmit={handleSubmit}>
           <h3>Discover New Taste</h3>
         <fieldset>
           <label>Country</label>
@@ -122,12 +99,12 @@ const CountrySearchBar = () => {
         <button id="contact-submit" type="submit" value="Search" data-submit="...searching">Search</button>
         </fieldset>
 
-        </form>
-      </div>
+      </form>
+    </div>
 
-      <div className="container">
+    <div className="container">
       {WineTiles}
-      </div>
+    </div>
   </>
  )
 }
