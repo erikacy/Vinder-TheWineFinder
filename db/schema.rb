@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_163110) do
+ActiveRecord::Schema.define(version: 2020_02_20_013218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "intarray"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2020_02_13_163110) do
     t.string "winery", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color"
+    t.string "image"
   end
 
 end

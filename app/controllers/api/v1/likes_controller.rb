@@ -17,7 +17,6 @@ class Api::V1::LikesController < ApiController
   end
 
   def destroy
-    binding.pry
     wine = Wine.find(params["wine_id"])
     user = current_user
     Like.find(user: user, wine: wine).destroy

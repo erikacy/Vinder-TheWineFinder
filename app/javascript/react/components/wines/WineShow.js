@@ -15,13 +15,16 @@ const WineShow = ({ wine }) => {
     region,
     title,
     variety,
-    winery
+    winery,
+    color,
+    image
   } = wine
 
 
   return (
     <>
     <div className="jumbotron">
+        <img src={image} className="img-thumbnail"></img>
         <h1 className='display-4'>{title}</h1>
           <h3 className="lead">Varietal: {variety}</h3>
           <h4 className="lead">{designation}</h4>
@@ -31,6 +34,7 @@ const WineShow = ({ wine }) => {
           <hr className="my-4"/>
 
           <h4 className="list-group-item">Winery: {winery}</h4>
+          <h4 className="list-group-item">Color: {color}</h4>
           <h4 className="list-group-item">Wine Score: {score}</h4>
           <h4 className="list-group-item">Price: {price}</h4>
           <h4 className="list-group-item">Tasting Notes: {description}</h4>
