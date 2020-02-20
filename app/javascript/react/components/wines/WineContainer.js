@@ -25,7 +25,7 @@ const WineContainer = () => {
         setCurrentUser(camelized)
         setWines(response.wines);
         if (camelized !== null) {
-          setGreeting(`Curated Wine List for ${camelized.firstName}`)
+          setGreeting(`Curated Only for ${camelized.firstName}`)
         }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));

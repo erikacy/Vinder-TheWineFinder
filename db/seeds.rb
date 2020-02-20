@@ -13,7 +13,7 @@ Wine.destroy_all
 User.destroy_all
 Like.destroy_all
 
-CSV.foreach(Rails.root.join('./lib/seeds/test_2.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('./lib/seeds/test_3.csv'), headers: true) do |row|
   a = row.to_hash
   Wine.create({
     country: a["country"],
@@ -25,7 +25,9 @@ CSV.foreach(Rails.root.join('./lib/seeds/test_2.csv'), headers: true) do |row|
     region: a["region_1"],
     title: a["title"],
     variety: a["variety"],
-    winery: a["winery"]
+    winery: a["winery"],
+    color: a["color"],
+    image: a["image"]
     })
 end
 
