@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import WineTile from '../wines/WineTile';
 
-const CountrySearchBar = () => {
+const SearchForm = () => {
   const defaultSearch = {
     country: '',
     region: '',
@@ -14,6 +14,7 @@ const CountrySearchBar = () => {
   };
   const [searchWines, setSearchWines] = useState([])
   const [searchString, setSearchString] = useState(defaultSearch)
+  const [message, setMessage] = useState("")
 
   const handleSearchChange = event => {
     setSearchString(event.currentTarget.value)
@@ -45,8 +46,13 @@ const CountrySearchBar = () => {
   })
   .then(response => response.json())
   .then(body => {
+    if (body.wines.length === 0){
+      setMessage("No Wine Pairing Matched At the Moment")
+    } else {
     setSearchWines(body.wines)
+    setMessage("Cheers!")
     clearForm()
+    }
   })
   }
 
@@ -66,33 +72,33 @@ const CountrySearchBar = () => {
           <h3>Pairing</h3>
         <fieldset>
           <label>Country</label>
-          <input type="text" name="country" value={searchString.country} onChange={onFormChange} placeholder="France, Italy..." tabindex="1"/>
+          <input type="text" name="country" value={searchString.country} onChange={onFormChange} placeholder="France, Italy..." tabIndex="1"/>
         </fieldset>
 
         <fieldset>
           <label>Region</label>
-          <input type="text" name="region" value={searchString.region} onChange={onFormChange} placeholder="Bordeaux, Napa, Rioja" tabindex="1" />
+          <input type="text" name="region" value={searchString.region} onChange={onFormChange} placeholder="Bordeaux, Napa, Rioja" tabIndex="1" />
         </fieldset>
 
         <fieldset>
           <label>Taste/Food Pairing</label>
-          <input type="text" name="description" value={searchString.description} onChange={onFormChange} placeholder="Seafood, steak, sweet, spicy, tannic" tabindex="1"/>
+          <input type="text" name="description" value={searchString.description} onChange={onFormChange} placeholder="Seafood, steak, sweet, spicy, tannic" tabIndex="1"/>
         </fieldset>
 
         <fieldset>
           <label>Varietal</label>
-          <input type="text" name="variety" value={searchString.variety} onChange={onFormChange} placeholder="Sauvignon Blanc, Cabernet, Sparkling, Rosé" tabindex="1" />
+          <input type="text" name="variety" value={searchString.variety} onChange={onFormChange} placeholder="Sauvignon Blanc, Cabernet, Sparkling, Rosé" tabIndex="1" />
         </fieldset>
 
         <fieldset>
           <label>Title/Vintage</label>
-          <input type="text" name="title" value={searchString.title} onChange={onFormChange} placeholder="" tabindex="1"/>
+          <input type="text" name="title" value={searchString.title} onChange={onFormChange} placeholder="" tabIndex="1"/>
         </fieldset>
 
 
         <fieldset>
           <label>Winery:</label>
-          <input type="text" name="winery" value={searchString.winery} onChange={onFormChange} placeholder="" tabindex="1"/>
+          <input type="text" name="winery" value={searchString.winery} onChange={onFormChange} placeholder="" tabIndex="1"/>
         </fieldset>
 
         <fieldset>
@@ -102,6 +108,8 @@ const CountrySearchBar = () => {
       </form>
     </div>
 
+    <div>{message}</div>
+
     <div className="card-group">
       {WineTiles}
     </div>
@@ -109,4 +117,4 @@ const CountrySearchBar = () => {
  )
 }
 
-export default CountrySearchBar
+export default SearchForm

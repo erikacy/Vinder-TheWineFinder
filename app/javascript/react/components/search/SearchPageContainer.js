@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import CountrySearchBar from './CountrySearchBar'
+import SearchForm from './SearchForm'
 
 const SearchPageContainer = () => {
 
   return (
   <>
-    <CountrySearchBar />
+    <SearchForm />
   </>
   )
 }
