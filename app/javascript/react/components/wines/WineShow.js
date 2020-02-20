@@ -17,9 +17,9 @@ const WineShow = ({ wine }) => {
     variety,
     winery,
     color,
-    image
+    image,
+    likes
   } = wine
-
 
   return (
     <>
