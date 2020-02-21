@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get '/', to: "static_pages#index"
   get '/new', to: "static_pages#index"
   get '/search', to: "static_pages#index"
-  get '/pairs', to: "static_pages#index"
   get '/user_wines', to: "static_pages#index"
+  get '/charts', to: "static_pages#index"
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
