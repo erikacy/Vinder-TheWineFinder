@@ -3,10 +3,10 @@ class Api::V1::WinesController < ApiController
 
   def index
     if current_user
-      list = current_user.recommend_wines(current_user).sample(10)
+      list = current_user.recommend_wines(current_user).sample(12)
       render json: list
     else
-      render json: Wine.all.sample(10)
+      render json: Wine.all.sample(12)
     end
   end
 
