@@ -17,7 +17,7 @@ const WineTile = ({ wine }) => {
 
   return (
       <div className="card" style={{width: "18rem", margin: 10}}>
-        <img className="card-img-top" src={wine.image} alt="Card image cap" />
+        <img className="card-img-top" src={wine.image} alt="Card image cap" data-toggle="tooltip" data-placement="bottom" title={wine.title}/>
         <div className="card-body">
           <h5 className={`card-text ${css(styles.title)}`}>{wine.title}</h5>
           <h5 className={`card-text ${css(styles.winery)}`}>{wine.variety}</h5>
@@ -25,5 +25,6 @@ const WineTile = ({ wine }) => {
       </div>
   )
 }
+
 
 export default WineTile;
