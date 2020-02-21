@@ -1,7 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { StyleSheet, css } from 'aphrodite';
 import WineTile from './WineTile';
 import humps from 'humps';
+
+const styles = StyleSheet.create({
+  title: {
+    color: '#240032'
+  },
+  subtitle: {
+    marginTop: 20,
+    marginBottom: 20
+  },
+  center: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  marginAuto: {
+    marginTop: 50,
+    marginBottom: 50
+  },
+  link: {
+    textDecoration: "none"
+  }
+})
 
 const WineContainer = () => {
   const [wines, setWines] = useState([]);
@@ -61,8 +83,8 @@ const WineContainer = () => {
     </div>
 
     <div>
-      <h2>{greeting}</h2>
-      <div className="card-group">
+      <h2 className = {css(styles.center, styles.marginAuto)}>{greeting}</h2>
+      <div className={`card-group ${css(styles.center)}`}>
         {wineTiles}
       </div>
     </div>

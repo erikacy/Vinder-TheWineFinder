@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
-const LikeTile = (props) => {
+const LikeTile = ({wine}) => {
 
-  const [likes, setLikes] = useState(0)
-  let wineId = props.wine.id
+  const [likes, setLikes] = useState(null)
+  let wineId = wine.id
+  let likeMessage
 
   const addLike = () => {
     fetch(`/api/v1/wines/${wineId}/likes`, {
@@ -27,7 +28,8 @@ const LikeTile = (props) => {
       .then(body => {
         setLikes(body.likes.length)
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
+      .catch(error => console.error(`Error in fetch: ${error.message}`)
+    );
   };
 
   const handleLike = event => {
@@ -35,11 +37,18 @@ const LikeTile = (props) => {
     addLike()
   }
 
+  if (likes === null) {
+    likeMessage = ""
+  } else {
+    likeMessage = "Oenophiles have liked"
+  }
+
+
 
   return(
     <>
       <button onClick={handleLike} type='submit' className='btn btn-primary btn-lg' value='Like'> Like
-      </button>{likes} people have liked
+      </button>{likes} {likeMessage}
     </>
   )
 
