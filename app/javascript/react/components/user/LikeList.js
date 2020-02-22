@@ -44,11 +44,15 @@ const LikeList = () => {
       })
       .then(response => response.json())
       .then(response => {
+        if (response.wines.length === 0) {
+          setListTitle("Welcome to Vinder! Please start clicking likes to create wine list")
+        } else {
         let camelized = humps.camelizeKeys(response.wines[0].users[0].current_user)
         setCurrentUser(camelized)
         setLikeWines(response.wines);
-        if (camelized !== null) {
+          if (camelized !== null) {
           setListTitle(`${camelized.firstName} ${camelized.lastName}'s Favorites`)
+          }
         }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -73,4 +77,4 @@ const LikeList = () => {
   )
 }
 
-export default LikeList
+export default LikeList;
