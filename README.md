@@ -8,7 +8,7 @@ Title: Vinder
 
 
 Description: Vinder is a wine recommending web application that allow users
-to receive personalized wine list based on wine preferences.
+to receive personalized wine list based on wine preferences. Using a wine dataset scraped from winemag.com, feature engineered in R.
 
 User can select their preferences based on different wine attributes, and Vinder will generate a list of wines that user would like based in selected attributes.
 
@@ -18,7 +18,7 @@ User can also get exposed to detail information about each individual wine, as w
 
 Author: Erica Huang
 
-Heroku Link
+Heroku Link: https://vinder-winefinder.herokuapp.com/
 
 # Technologies
 
