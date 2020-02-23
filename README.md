@@ -10,15 +10,17 @@ Title: Vinder
 Description: Vinder is a wine recommending web application that allow users
 to receive personalized wine list based on wine preferences.
 
-User can select their preferences based on different wine attributes, and Vinder will generate a list of wines that user would like based in selected attributes.
+User can select their preferences based on different wine attributes, and Vinder will generate a list of wines accordingly.
 
-User can also search wine by keyword such as the name or variety or country from the wine database.
+User can also search wine by various attributes from the wine database.
 
-User can also get exposed to detail information about each individual wine, as well as saving each individual wine to a personal wine list and make tasting notes for every wine.
+User can also get exposed to detail information about each individual wine, as well as saving each individual wine to a personal wine list.
+
+Integrated with Tableau JS API for wine stats and dashboard.
 
 Author: Erica Huang
 
-Heroku Link
+Heroku Link: https://vinder-winefinder.herokuapp.com/
 
 # Technologies
 
