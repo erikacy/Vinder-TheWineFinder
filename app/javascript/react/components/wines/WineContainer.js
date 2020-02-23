@@ -8,6 +8,7 @@ import Sommelier from "../../../../assets/images/sommelier.png";
 
 import Analytics1 from "../../../../assets/images/analytics.png";
 import Analytics2 from "../../../../assets/images/analytics2.png";
+import Analytics3 from "../../../../assets/images/analytics-wordpress.png";
 
 
 const WineContainer = () => {
@@ -137,7 +138,7 @@ const WineContainer = () => {
           style={{
             display: "flex",
             height: "400px",
-            backgroundColor: "#b0bec5"
+            backgroundColor: "#F7DBD7"
           }}
         >
           <div style={{ width: "50%", padding: "48px" }}>
@@ -150,7 +151,7 @@ const WineContainer = () => {
                 alignItems: "center"
               }}
             >
-              <img style={{ maxWidth: "300px" }} src={Analytics2} />
+              <img style={{ maxWidth: "300px" }} src={Analytics3} />
             </div>
           </div>
           <div
@@ -175,7 +176,7 @@ const WineContainer = () => {
           style={{
             display: "flex",
             height: "400px",
-            backgroundColor: "#eeeeee"
+            backgroundColor: "white"
           }}
         >
           <div
@@ -217,11 +218,11 @@ const WineContainer = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "rgb(39, 67, 82)",
+            backgroundColor: "#F7DBD7",
             flexDirection: "column",
             textAlign: "center",
             padding: "24px",
-            color: "white"
+            color: "black"
           }}
         >
           <h2 style={{ marginBottom: "16px" }}>Explore Vinder today!</h2>
