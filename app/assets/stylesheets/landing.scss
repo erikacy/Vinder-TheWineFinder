@@ -1,177 +1,99 @@
 .container-fluid.main {
-	position: relative; /* To make the navbar positions relative to this container */
-	padding: 0;
+  position: fixed; /* To make the navbar positions relative to this container */
+  padding: 0;
+  top: 80px;
+  height: calc(100vh - 80px);
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
 
 .navbar-default {
-	background-image: none;
-	background-color: transparent; /* Make the menu become transparent */
-	border-radius: 0px;
-	border: 0;
-	box-shadow: none;
-	padding: 10px;
-	position: absolute; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
+  background-image: none;
+  background-color: #fff;
+  border-radius: 0px;
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+  padding: 10px 20px;
+  position: absolute; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
+  min-height: 80px;
 }
 
 .navbar-default .navbar-brand {
-	font-family: Verdana;
-	color: #ffffff;
-	font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana;
+  color: rgb(171, 43, 47);
+  font-size: 20px;
+  max-height: 40px;
+}
+
+.navbar-default h1 {
+  margin: 0;
+  margin-left: 4px;
+  font-size: 40px;
+}
+
+.navbar-default img {
+  height: 40px;
+  width: 40px;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-	color: #ffffff;
-	background-color: transparent;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-default .navbar-nav > li:not(:first-child) {
+  margin-left: 16px;
 }
 
 .navbar-default .navbar-nav > li > a {
-	color: #ffffff;
+  font-size: 20px;
+  border: 1px solid rgb(171, 43, 47);
+  color: rgb(171, 43, 47);
+  padding: 8px 16px;
+  border-radius: 4px;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-	color: #ffffff;
-	background-color: transparent;
+  color: white;
+  background-color: rgb(171, 43, 47);
+  text-decoration: none;
 }
 
-.navbar-default .navbar-toggle {
-	border-color: transparent;
+.navbar-default .navbar-nav > li > a:active {
+  background-color: rgb(146, 18, 22);
 }
 
-.navbar-default .navbar-toggle:hover {
-	background-color: transparent;
+
+.wine-tile-link {
+  color: #292f33;
 }
 
-.navbar-default .navbar-toggle:focus {
-	background-color: transparent;
+.wine-tile-link .card {
+  box-shadow: 0;
+  transition: 0.5s;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-	background-color: #ffffff;
+.wine-tile-link:active,
+.wine-tile-link:focus,
+.wine-tile-link:hover {
+  text-decoration: none;
+  color: #292f33;
 }
 
-.carousel .background {
-	background-position: center center;
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	height: 700px;
-}
-
-@media (max-width: 991px) {
-	.carousel .background {
-		background-size: cover; /* To make the background image looks good */
-	}
-}
-
-.carousel .background.a {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url("https://images.unsplash.com/photo-1519010061024-29565d5c415e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-}
-
-.carousel .background.c {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url("https://images.unsplash.com/photo-1526137630052-dc2c4693f0d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-}
-
-.carousel .background.b {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url("https://images.unsplash.com/photo-1504868173-db962b7c3757?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-}
-
-.carousel-fade .carousel-inner .item {
-	opacity: 0;
-	transition: opacity 0.5s; /* The 0.5s describes the duration to make the opacity from 0 to 1 */
-}
-
-.carousel-fade .carousel-inner .active {
-	opacity: 1;
-}
-
-/* CSS Hack to trigger GPU for smooth transition */
-@media all and (transform-3d), (-webkit-transform-3d) {
-	.carousel-fade .carousel-inner > .item.next,
-	.carousel-fade .carousel-inner > .item.active.right {
-		opacity: 0;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-	}
-	.carousel-fade .carousel-inner > .item.prev,
-	.carousel-fade .carousel-inner > .item.active.left {
-		opacity: 0;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-	}
-	.carousel-fade .carousel-inner > .item.next.left,
-	.carousel-fade .carousel-inner > .item.prev.right,
-	.carousel-fade .carousel-inner > .item.active {
-		opacity: 1;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-	}
-}
-/* CSS Hack to trigger GPU for smooth transition */
-
-.covertext {
-	position: absolute; /* To make the div to be place anywhere. It is out of the document flow */
-	top: 200px; /* The distance between the div with the top of document */
-	left: 0px; /* Make the div full width */
-	right: 0px; /* Make the div full width */
-}
-
-.title {
-	font-family: Verdana;
-	font-weight: 600;
-	font-size: 60px;
-	color: #ffffff;
-	text-align: center;
-}
-
-.subtitle {
-	font-family: Verdana;
-	font-size: 23px;
-	color: #ffffff;
-	text-align: center;
-}
-
-.explore {
-	text-align: center;
-	margin-top: 10px;
-}
-
-.explore .btn-lg,
-.explore .btn-lg:hover {
-	border-radius: 30px;
-	padding: 15px 25px;
-	font-size: 22px;
-	background-image: none;
-	background-color: #ff4000;
-	border-color: #ff4000;
-	color: #ffffff;
-}
-
-.btn,
-.btn:hover {
-	border-radius: 0px;
-	background-image: none;
-	background-color: #ff4000;
-	border-color: #ff4000;
-	color: #ffffff;
-	margin-bottom: 20px;
-	box-shadow: none;
-	outline: none;
-}
-
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn.active.focus {
-	color: #ffffff;
-	outline: none;
+.wine-tile-link .card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

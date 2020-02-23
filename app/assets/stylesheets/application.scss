@@ -1,8 +1,103 @@
 // custom boostrap variables must be set or import before bootstrap
 
-@import 'pair';
-@import 'newsearch';
-@import 'bootstrap';
-@import 'landing';
-@import 'userform';
-@import 'unlikebutton';
+@import "pair";
+@import "bootstrap";
+@import "landing";
+@import "userform";
+
+
+body {
+  height: 100vh;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  min-width: 300px;
+  color: #292f33;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  font-size: 20px;
+  min-height: 41px;
+  padding: 8px;
+  border: 1px solid #9e9e9e;
+  border-radius: 4px;
+}
+
+a {
+  color: rgb(171, 43, 47);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(171, 43, 47);
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(146, 18, 22);
+}
+
+.primary-button {
+  cursor: pointer;
+  border: 1px solid rgb(171, 43, 47);
+  background-color: rgb(171, 43, 47);
+  padding: 8px;
+  font-size: 20px;
+  min-height: 41px;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+}
+
+.primary-button:active {
+  background-color: rgb(146, 18, 22);
+}
+
+.primary-button.is-circle {
+  border-radius: 40px;
+}
+
+.secondary-button {
+  background-color: white;
+  color: rgb(171, 43, 47);
+  border: 1px solid rgb(171, 43, 47);
+  min-height: 41px;
+  border-radius: 4px;
+}
+
+button {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+button:active,
+button:focus,
+input:active,
+input:focus {
+  outline: none;
+  border: 1px solid rgb(171, 43, 47);
+  box-shadow: 0 0 0px 3px #de5e62;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.badge-pill:hover {
+  cursor: pointer;
+}
+
+.badge-pill:active,
+.badge-pill:focus {
+  background-color: rgb(146, 18, 22);
+  box-shadow: 0 0 0px 3px #de5e62;
+}
+
+// *:focus,
+// *:active {
+//   outline-color: rgb(171, 43, 47);
+// }

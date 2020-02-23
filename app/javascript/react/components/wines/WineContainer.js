@@ -1,37 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { StyleSheet, css } from 'aphrodite';
-import WineTile from './WineTile';
-import humps from 'humps';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { StyleSheet, css } from "aphrodite";
+import WineTile from "./WineTile";
+import humps from "humps";
 
-const styles = StyleSheet.create({
-  title: {
-    color: '#240032'
-  },
-  subtitle: {
-    marginTop: 20,
-    marginBottom: 20
-  },
-  center: {
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  marginAuto: {
-    marginTop: 50,
-    marginBottom: 50
-  },
-  link: {
-    textDecoration: "none"
-  }
-})
+import Sommelier from "../../../../assets/images/sommelier.png";
+
+import Analytics1 from "../../../../assets/images/analytics.png";
+import Analytics2 from "../../../../assets/images/analytics2.png";
+import Analytics3 from "../../../../assets/images/analytics-wordpress.png";
+
 
 const WineContainer = () => {
   const [wines, setWines] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null)
-  const [greeting, setGreeting] = useState("Taste the world's finest...")
+  const [currentUser, setCurrentUser] = useState(null);
+  const [greeting, setGreeting] = useState("Loading Recommended Wines ...");
 
   useEffect(() => {
-    fetch('/api/v1/wines.json')
+    fetch("/api/v1/wines.json")
       .then(response => {
         if (response.ok) {
           return response;
@@ -43,54 +29,210 @@ const WineContainer = () => {
       })
       .then(response => response.json())
       .then(response => {
-        let camelized = humps.camelizeKeys(response.wines[0].users[0].current_user)
-        setCurrentUser(camelized)
+        let camelized = humps.camelizeKeys(
+          response.wines[0].users[0].current_user
+        );
+        setCurrentUser(camelized);
         setWines(response.wines);
         if (camelized !== null) {
-          setGreeting(`Curated Only for ${camelized.firstName}`)
+          setGreeting(`Curated Only for ${camelized.firstName}`);
+        } else {
+          setGreeting("Taste the world's finest");
         }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, []);
 
   const wineTiles = wines.map(wine => {
-  let id = wine.id;
-  return (
-    <Link to={`/wines/${id}`} target="_blank" key={wine.id}>
-      <WineTile id={wine.id} wine={wine} />
-    </Link>
+    let id = wine.id;
+    return (
+      <Link
+        className="wine-tile-link"
+        to={`/wines/${id}`}
+        target="_blank"
+        key={wine.id}
+      >
+        <WineTile id={wine.id} style={{ marginRight: "48px" }} wine={wine} />
+      </Link>
     );
   });
 
-  return(
+  return (
     <>
-    <div className="container-fluid main">
-      <div id="myCarousel" className="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
-        <div className="carousel-inner" role="listbox">
-          <div className="item active background a"></div>
-        </div>
-      </div>
+      <div className="container-fluid main">
+        <div
+          className="row"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "48px",
+            borderBottom: "1px solid #e0e0e0"
+          }}
+        >
+          <div
+            className="col-lg-6"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              maxWidth: "500px"
+            }}
+          >
+            <img style={{ padding: "24px", height: "500px" }} src={Sommelier} />
+          </div>
+          <div
+            className="col-lg-6"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              maxWidth: "500px"
+            }}
+          >
+            <h2 style={{ marginBottom: "12px" }}>
+              Meet Your Personal Sommelier!
+            </h2>
 
-      <div className="covertext">
-        <div className="col-lg-10" style={{float: "none", margin: 0}}>
-          <h1 className="title">VINDER</h1>
-          <h3 className="subtitle">Your Personal Sommelier</h3>
+            <div style={{ textAlign: "left" }}>
+              <h4 style={{ fontWeight: "400" }}>Discover new wines</h4>
+              <h4 style={{ fontWeight: "400" }}>
+                Receive smart recommendations
+              </h4>
+              <h4 style={{ fontWeight: "400" }}>
+                Generate wine pairings on demand
+              </h4>
+            </div>
+            <a href="/search" style={{ marginTop: "12px" }}>
+              <button type="button" className="primary-button is-circle">
+                Start Pairing
+              </button>
+            </a>
+          </div>
         </div>
-        <div className="col-xs-12 explore">
-          <a href="/search"><button type="button" className="btn btn-lg explorebtn">Start Pairing!</button></a>
+        <div
+          style={{
+            borderBottom: "1px solid #e0e0e0",
+            backgroundColor: "white",
+            width: "100vw",
+            minHeight: "400px",
+            padding: "24px 0"
+          }}
+        >
+          <h2 style={{ marginBottom: "12px", padding: "0 0 0 48px" }}>
+            {greeting}
+          </h2>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              overflowX: "scroll",
+              padding: "12px 0 12px 48px"
+            }}
+          >
+            {wineTiles}
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            height: "400px",
+            backgroundColor: "#F7DBD7"
+          }}
+        >
+          <div style={{ width: "50%", padding: "48px" }}>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <img style={{ maxWidth: "300px" }} src={Analytics3} />
+            </div>
+          </div>
+          <div
+            style={{
+              height: "100%",
+              width: "50%",
+              padding: "48px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column"
+            }}
+          >
+            <h2>Customized Recommendations</h2>
+            <p style={{ fontSize: "20px" }}>
+              We generate the best possible
+              recommendations for you and what you enjoy.
+            </p>
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            height: "400px",
+            backgroundColor: "white"
+          }}
+        >
+          <div
+            style={{
+              height: "100%",
+              width: "50%",
+              padding: "48px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              textAlign: "center",
+              padding: "24px"
+            }}
+          >
+            <h2>Professional Wine Pairings</h2>
+            <p style={{ fontSize: "20px" }}>
+              Pair any wine with a taste, food, winery, and more.
+            </p>
+          </div>
+          <div style={{ width: "50%", padding: "48px" }}>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <img style={{ maxWidth: "300px" }} src={Analytics1} />
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            width: "100%",
+            height: "400px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#F7DBD7",
+            flexDirection: "column",
+            textAlign: "center",
+            padding: "24px",
+            color: "black"
+          }}
+        >
+          <h2 style={{ marginBottom: "16px" }}>Explore Vinder today!</h2>
+          <a href="/search">
+            <button className="primary-button is-circle">Get Started</button>
+          </a>
         </div>
       </div>
-    </div>
-
-    <div>
-      <h2 className = {css(styles.center, styles.marginAuto)}>{greeting}</h2>
-      <div className={`card-group ${css(styles.center)}`}>
-        {wineTiles}
-      </div>
-    </div>
     </>
-  )
-
-}
+  );
+};
 
 export default WineContainer;

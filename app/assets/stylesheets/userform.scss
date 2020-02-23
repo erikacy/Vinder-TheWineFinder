@@ -1,7 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400, 700");
 
 body {
-  background-image: url("https://images.pexels.com/photos/39351/purple-grapes-vineyard-napa-valley-napa-vineyard-39351.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat;
+  background-color: #f5f5f5;
   background-size: cover;
   height: 100%;
 }
@@ -11,25 +11,57 @@ body {
 }
 
 #form-main {
+  position: fixed;
+  top: 80px;
   width: 100%;
-  float: left;
-  padding-top: 0px;
+  height: calc(100vh - 80px);
+  padding: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #form-div {
-  background-color: rgba(72, 72, 72, 0.4);
-  padding-left: 35px;
-  padding-right: 35px;
-  padding-top: 35px;
-  padding-bottom: 50px;
-  width: 450px;
-  float: left;
-  left: 50%;
-  position: absolute;
-  margin-top: 30px;
-  margin-left: -260px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
+  background: #fff;
+  padding: 48px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 80px;
+  min-width: 500px;
+}
+
+@media (max-width: 548px) {
+  #form-div {
+    min-width: 300px;
+    width: 100%;
+  }
+}
+
+#form-div input[type="email"],
+#form-div input[type="password"] {
+  width: 100%;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.remember-me *[type="checkbox"] {
+  margin-right: 4px;
+}
+
+label {
+  margin-bottom: 4px;
+}
+
+.remember-me label {
+  margin-bottom: 0px;
 }
 
 .feedback-input {
@@ -142,6 +174,26 @@ textarea:focus {
   color: #3498db;
 }
 
+.actions {
+  text-align: center;
+}
+
+.actions input {
+  cursor: pointer;
+  font-size: 20px;
+  background-color: rgb(171, 43, 47);
+  border: 1px solid rgb(171, 43, 47);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  width: 100%;
+  min-width: 125px;
+}
+
+.actions input:active {
+  background-color: rgb(146, 18, 22);
+}
+
 .ease {
   width: 0px;
   height: 74px;
@@ -158,13 +210,6 @@ textarea:focus {
   background-color: white;
 }
 
-@media only screen and (max-width: 580px) {
-  #form-div {
-    left: 3%;
-    margin-right: 3%;
-    width: 88%;
-    margin-left: 0;
-    padding-left: 3%;
-    padding-right: 3%;
-  }
+.login-links {
+  margin-top: 8px;
 }

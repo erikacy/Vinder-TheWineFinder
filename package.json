@@ -23,9 +23,14 @@
     "lodash": "^4.17.15",
     "prop-types": "~15.6.0",
     "react": "~16.8.0",
+    "react-bootstrap-typeahead": "^3.4.7",
     "react-dom": "~16.8.0",
+    "react-icons": "^3.9.0",
     "react-router-dom": "5.0.0",
-    "redbox-react": "1.6.0"
+    "redbox-react": "1.6.0",
+    "tableau-api": "^2.2.3",
+    "tableau-react": "^2.0.0-beta.0",
+    "tableau-react-embed": "^1.1.0"
   },
   "devDependencies": {
     "babel-jest": "^24.9.0",

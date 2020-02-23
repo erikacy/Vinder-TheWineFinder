@@ -5,6 +5,8 @@ import WineShowContainer from './wines/WineShowContainer';
 import NewWineContainer from './wineform/NewWineContainer';
 import SearchPageContainer from './search/SearchPageContainer';
 import UserContainer from './user/UserContainer';
+import ScorePrice from './visualizations/ScorePrice';
+import WineComparison from './visualizations/WineComparison';
 
 export const App = () => {
   return (
@@ -16,6 +18,8 @@ export const App = () => {
         <Route exact path='/search' component={SearchPageContainer} />
         <Route exact path='/wines/:id' component={WineShowContainer} />
         <Route exact path='/user_wines' component={UserContainer} />
+        <Route exact path='/scores' component={ScorePrice} />
+        <Route exact path='/comparison' component={WineComparison} />
       </Switch>
     </BrowserRouter>
   )
