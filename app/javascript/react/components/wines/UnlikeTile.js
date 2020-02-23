@@ -4,7 +4,7 @@ const UnlikeTile = (props) => {
   const [className, setClassName] = useState("")
   const [currentUserId, setCurrentUserId] = useState(null)
   let wineId = props.wine.id
-  
+
   const removeLike = () => {
     fetch(`/api/v1/wines/${wineId}/likes`, {
       credentials: 'same-origin',
@@ -34,16 +34,6 @@ const UnlikeTile = (props) => {
     event.preventDefault()
     removeLike()
   }
-
-
-  // if (props.wine.users[0].current_user.id !== null) {
-  //   props.wine.likes.forEach(like => {
-  //     if (like.user_id === currentUserId){
-  //       setClassName("display")
-  //     }
-  //   })
-  // }
-
 
   return (
     <button className={className} onClick={clickUnlike} type='submit'

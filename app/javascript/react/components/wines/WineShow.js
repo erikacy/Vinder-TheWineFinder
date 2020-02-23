@@ -1,34 +1,9 @@
-import React from 'react';
-import LikeTile from './LikeTile';
-import { StyleSheet, css } from 'aphrodite';
-
-const styles = StyleSheet.create({
-  wrapper: {
-    marginTop: 120,
-    marginLeft: 50,
-    marginRight: 50
-  },
-  wine_picture: {
-    width: '25%',
-    borderRadius: 20,
-  },
-  information: {
-    display: 'flex'
-  },
-  detail: {
-    marginTop: 30,
-    margin: 25
-  },
-  black: {
-    color: 'black'
-  },
-  wine: {
-    marginTop: 50
-  }
-})
+import React from "react";
+import LikeTile from "./LikeTile";
+import { StyleSheet, css } from "aphrodite";
+import { FaDollarSign, FaPercentage } from "react-icons/fa";
 
 const WineShow = ({ wine }) => {
-
   let {
     id,
     country,
@@ -44,35 +19,139 @@ const WineShow = ({ wine }) => {
     color,
     image,
     likes
-  } = wine
+  } = wine;
 
   return (
     <>
-      <div className={`jumbotron ${css(styles.wrapper)}`}>
-        <div className="container">
-          <div className="row">
-            <div className={`col-sm-8 ${css(styles.information)}`}>
-              <img className={`card-img-top ${css(styles.wine_picture)}`} src={image} alt="Card image cap" />
-              <div className={css(styles.detail)}>
-                <h1 className="lead" style={{color: 'black', fontWeight: 'bold', fontSize: 25}}>{title}</h1>
-                <h3 className="lead" style={{color: 'black', fontWeight: 'bold', fontSize: 20}}>Varietal: {variety}</h3>
-                <h4 className="lead" style={{color: 'black', fontWeight: 'bold', fontSize: 20}}>{designation}</h4>
-                <h4 className="lead" style={{color: 'black', fontWeight: 'bold', fontSize: 20}}>{`${country} ${province} ${region}`}</h4>
-                <h5 className="lead" style={{color: 'black', fontWeight: 'bold', fontSize: 20}}>{description}</h5>
+      <div className="container-fluid main" style={{ padding: "48px" }}>
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="card" style={{ padding: "48px" }}>
+              <div style={{ display: "flex" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginRight: "48px"
+                  }}
+                >
+                  <img
+                    style={{
+                      height: "300px",
+                      width: "300px"
+                    }}
+                    src={image}
+                    alt={title}
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-evenly",
+                      alignItems: "center"
+                    }}
+                  >
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <h6 style={{ color: "#616161", marginBottom: "4px" }}>
+                        Score
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "40px",
+                          marginBottom: "12px",
+                          display: "flex",
+                          alignItems: "center"
+                        }}
+                      >
+                        {score}
+                        <FaPercentage />
+                      </h6>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <h6 style={{ color: "#616161", marginBottom: "4px" }}>
+                        Price
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "40px",
+                          marginBottom: "12px",
+                          display: "flex",
+                          alignItems: "center"
+                        }}
+                      >
+                        <FaDollarSign />
+                        {price}
+                      </h6>
+                    </div>
+                  </div>
+                  <LikeTile wine={wine} />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <h6 style={{ color: "#616161", marginBottom: "4px" }}>
+                    Name
+                  </h6>
+                  <h6 style={{ fontSize: "24px", marginBottom: "12px" }}>
+                    {title}
+                  </h6>
+                  <div style={{ display: "flex" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "50%",
+                        maxWidth: "400px"
+                      }}
+                    >
+                      <h6 style={{ color: "#616161", marginBottom: "4px" }}>
+                        Variety
+                      </h6>
+                      <h6 style={{ fontSize: "24px", marginBottom: "12px" }}>
+                        {wine.variety}
+                      </h6>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "50%",
+                        maxWidth: "400px"
+                      }}
+                    >
+                      <h6 style={{ color: "#616161", width: "25%" }}>Winery</h6>
+                      <h6 style={{ fontSize: "24px", marginBottom: "12px" }}>
+                        {winery}
+                      </h6>
+                    </div>
+                  </div>
+                  <h6 style={{ color: "#616161", width: "25%" }}>Color</h6>
+                  <h6 style={{ fontSize: "24px", marginBottom: "12px" }}>
+                    {color}
+                  </h6>
+                  <h6 style={{ color: "#616161", marginBottom: "4px" }}>
+                    Designation
+                  </h6>
+                  <h6 style={{ fontSize: "24px", marginBottom: "12px" }}>
+                    {wine.designation}
+                  </h6>
+                  <h6 style={{ color: "#616161", marginBottom: "4px" }}>
+                    Location
+                  </h6>
+                  <h6 style={{ fontSize: "24px", marginBottom: "12px" }}>
+                    {country}, {province}, {region}
+                  </h6>
+                  <h6 style={{ color: "#616161", marginBottom: "4px" }}>
+                    Description
+                  </h6>
+                  <h6 style={{ fontSize: "24px", marginBottom: "12px" }}>
+                    {description}
+                  </h6>
+                </div>
               </div>
-            </div>
-            <div className={`col-sm-4 ${css(styles.wine)}`}>
-              <h5 className="list-group-item">Winery: {winery}</h5>
-              <h5 className="list-group-item">Color: {color}</h5>
-              <h5 className="list-group-item">Wine Score: {score}</h5>
-              <h5 className="list-group-item">Price: {price}</h5>
             </div>
           </div>
         </div>
       </div>
-      <LikeTile wine={wine}/>
     </>
-  )
-}
+  );
+};
 
 export default WineShow;

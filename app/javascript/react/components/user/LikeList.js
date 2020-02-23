@@ -1,38 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { StyleSheet, css } from 'aphrodite';
-import WineTile from '../wines/WineTile';
-import humps from 'humps';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { StyleSheet, css } from "aphrodite";
+import WineTile from "../wines/WineTile";
+import humps from "humps";
 
-const styles = StyleSheet.create({
-  title: {
-    color: '#240032'
-  },
-  subtitle: {
-    marginTop: 20,
-    marginBottom: 20
-  },
-  center: {
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  marginAuto: {
-    marginTop: 50,
-    marginBottom: 50
-  },
-  link: {
-    textDecoration: "none"
-  }
-})
-
+import Sommelier from "../../../../assets/images/sommelier.png";
 
 const LikeList = () => {
-  const [likeWines, setLikeWines] = useState([])
-  const [currentUser, setCurrentUser] = useState(null)
-  const [listTitle, setListTitle] = useState("")
+  const [isLoading, setIsLoading] = useState(true);
+  const [likeWines, setLikeWines] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [listTitle, setListTitle] = useState("");
 
   useEffect(() => {
-    fetch('/api/v1/user_wines.json')
+    fetch("/api/v1/user_wines.json")
       .then(response => {
         if (response.ok) {
           return response;
@@ -44,37 +25,96 @@ const LikeList = () => {
       })
       .then(response => response.json())
       .then(response => {
-        if (response.wines.length === 0) {
-          setListTitle("Welcome to Vinder! Please start clicking likes to create wine list")
-        } else {
-        let camelized = humps.camelizeKeys(response.wines[0].users[0].current_user)
-        setCurrentUser(camelized)
+        let camelized = humps.camelizeKeys(
+          response.wines[0].users[0].current_user
+        );
+        setCurrentUser(camelized);
         setLikeWines(response.wines);
-          if (camelized !== null) {
-          setListTitle(`${camelized.firstName} ${camelized.lastName}'s Favorites`)
-          }
+        setIsLoading(false);
+        if (camelized !== null) {
+          setListTitle(
+            `${camelized.firstName} ${camelized.lastName}'s Personal Wine List`
+          );
         }
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
+      .catch(error => {
+        setIsLoading(false);
+        console.error(`Error in fetch: ${error.message}`);
+      });
   }, []);
 
   const WineTiles = likeWines.map(wine => {
-  let id = wine.id;
-  return (
-    <Link to={`/wines/${id}`} target="_blank" key={wine.id}>
-      <WineTile id={wine.id} wine={wine} />
-    </Link>
+    let id = wine.id;
+    return (
+      <div className="col-xl-4" style={{ marginBottom: "48px" }}>
+        <Link
+          className="wine-tile-link"
+          style={{ marginRight: "0 !important" }}
+          to={`/wines/${id}`}
+          target="_blank"
+          key={wine.id}
+        >
+          <WineTile id={wine.id} wine={wine} />
+        </Link>
+      </div>
     );
   });
 
-  return (
-    <>
-      <h2 className= {css(styles.center, styles.marginAuto)}>{listTitle}</h2>
-      <div className={`card-group ${css(styles.center)}`}>
-        {WineTiles}
+  if (isLoading) {
+    return (
+      <div
+        className="container-fluid main"
+        style={{
+          display: "flex",
+          width: "100vw",
+          flexDirection: "column",
+          padding: "48px"
+        }}
+      >
+        <h2 style={{ marginBottom: "48px" }}>
+          Loading Your Personal Wine List ...
+        </h2>
       </div>
-    </>
-  )
-}
+    );
+  }
+
+  if (likeWines && likeWines.length === 0) {
+    return (
+      <div
+        className="container-fluid main"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          width: "100vw",
+          flexDirection: "column",
+          padding: "48px"
+        }}
+      >
+        <img style={{ padding: "24px", height: "500px" }} src={Sommelier} />
+        <h2>Your personal wine list is empty!</h2>
+        <a href="/search" style={{ marginTop: "12px" }}>
+          <button className="primary-button is-circle">Find Wines</button>
+        </a>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="container-fluid main"
+      style={{
+        display: "flex",
+        width: "100vw",
+        flexDirection: "column",
+        padding: "48px"
+      }}
+    >
+      <h2 style={{ marginBottom: "48px" }}>{listTitle}</h2>
+      <div className="container" style={{ width: "100%" }}>
+        <div className="row">{WineTiles}</div>
+      </div>
+    </div>
+  );
+};
 
 export default LikeList;

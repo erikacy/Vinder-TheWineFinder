@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VINDER</title>
+  <base href="/" />
+  <title>Vinder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
@@ -11,17 +12,25 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">VINDER</a>
+        <a class="navbar-brand" href="/">
+          <%= image_tag('wine.png') %>
+          <h1>Vinder</h1>
+        </a>
       </div>
       <div id="myNavbar">
         <ul class="nav navbar-nav">
           <%- if current_user -%>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
             <li><a href="/user_wines">Personal List</a></li>
-            <li><a href="/new">Add a Wine</a></li>
+            <li><a href="/scores">Global Wine Score</a></li>
+            <li><a href="/comparison">Global Comparison</a></li>
+            <li><a href="/search">Pairings</a></li>
           <%- else -%>
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
             <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><a href="/scores">Global Wine Score</a></li>
+            <li><a href="/comparison">Global Comparison</a></li>
+            <li><a href="/search">Pairings</a></li>
           <%- end -%>
         </ul>
       </div>

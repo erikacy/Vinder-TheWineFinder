@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const LikeTile = ({wine}) => {
-
-  const [likes, setLikes] = useState(null)
-  let wineId = wine.id
-  let likeMessage
+const LikeTile = ({ wine }) => {
+  const [likes, setLikes] = useState(null);
+  let wineId = wine.id;
+  let likeMessage;
 
   const addLike = () => {
     fetch(`/api/v1/wines/${wineId}/likes`, {
-      credentials: 'same-origin',
-      method: 'POST',
+      credentials: "same-origin",
+      method: "POST",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       }
     })
       .then(response => {
@@ -26,32 +25,35 @@ const LikeTile = ({wine}) => {
       })
       .then(response => response.json())
       .then(body => {
-        setLikes(body.likes.length)
+        setLikes(body.likes.length);
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`)
-    );
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
   };
 
   const handleLike = event => {
-    event.preventDefault()
-    addLike()
-  }
+    event.preventDefault();
+    addLike();
+  };
 
   if (likes === null) {
-    likeMessage = ""
+    likeMessage = "";
   } else {
-    likeMessage = "Oenophiles have liked"
+    likeMessage = "people have liked";
   }
 
-
-
-  return(
+  return (
     <>
-      <button onClick={handleLike} type='submit' className='btn btn-primary btn-lg' value='Like'> Like
-      </button>{likes} {likeMessage}
+      <button
+        onClick={handleLike}
+        type="submit"
+        className="primary-button"
+        value="Like"
+      >
+        Like
+      </button>
+      {likes} {likeMessage}
     </>
-  )
+  );
+};
 
-}
-
-export default LikeTile
+export default LikeTile;
