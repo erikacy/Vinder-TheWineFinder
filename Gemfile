@@ -53,6 +53,6 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'webpacker', '~> 3.3'
 gem "active_model_serializers"
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'faker'
 gem 'pg_search'
